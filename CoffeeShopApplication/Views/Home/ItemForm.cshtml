@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "ItemForm";
+}
+@model CoffeeShopApplication.Models.Item
+
+<h2>New Item Form</h2>
+<br />
+<form action="/Home/SaveItem" method="post">
+    <label>Item Name</label><input class="form-control" type="text" name="name" /><br />
+    <label>Description</label><input class="form-control" type="text" name="description" /><br />
+    <label>Price</label><input class="form-control" type="text" name="price" /><br />
+    <label>Quantity</label><input class="form-control" type="text" name="quantity" /><br />
+    <button type="submit" class="btn btn-primary">Save</button><br />
+
+</form>
+

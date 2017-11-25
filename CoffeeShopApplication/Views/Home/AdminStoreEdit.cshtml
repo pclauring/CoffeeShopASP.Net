@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "AdminStoreEdit";
+}
+
+<h2>AdminStoreEdit</h2>
+@model CoffeeShopApplication.Models.Item
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ItemList)
+        {
+            
+        <tr><td>@item.Name</td><td>@item.Description</td><td>@item.Price</td>
+        <td><a class="btn btn-primary" href="/Home/EditItem?Name=@item.Name" role="button">Edit</a></td>
+        <td><a class="btn btn-primary" href="/Home/DeleteItem?Name=@item.Name" role="button"  onclick="return confirm('Are you sure?')">Delete</a></td></tr>
+        }
+        <tr><td><a class="btn btn-primary" href="/Home/ItemForm" role="button">Add new item</a></td></tr>
+    </tbody>
+</table>

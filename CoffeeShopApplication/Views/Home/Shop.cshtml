@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Shop";
+}
+
+@model CoffeeShopApplication.Models.Item
+<h2>Coffee Shop</h2>
+
+
+<div class="d-flex flex-wrap">
+    @foreach (var item in ViewBag.ItemList)
+    {
+        <div class="col-sm-4"><h3>@item.Name</h3><h4>@item.Description</h4><h4>@item.Price</h4>
+            <a href="/Home/AddToCart?Name=@item.Name" class="btn btn-info" role="button">Add to cart</a></div>
+    }
+</div>
+<br />
+
+   @if (ViewBag.Cart != null)
+   {
+    <h3>Your Cart</h3>
+    <br />
+        <table class="table">
+            @foreach (var item in ViewBag.Cart)
+            {
+                <tr><th>@item</th></tr>
+            }
+
+        </table>
+   }
+
