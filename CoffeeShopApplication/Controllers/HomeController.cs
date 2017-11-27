@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CoffeeShopApplication.Models;
-
+using System.Text.RegularExpressions;
 
 namespace CoffeeShopApplication.Controllers
 {
@@ -164,6 +164,23 @@ namespace CoffeeShopApplication.Controllers
             Session["Cart"] = Cart;
 
             return RedirectToAction("Shop");
+        }
+
+        public ActionResult SearchForItemName(string ItemName)
+        {
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+            List<Item> OutputList = new List<Item>();
+
+            foreach (Item i in ORM.Items.ToList())
+            {
+                if (i.Name != null && Regex.IsMatch(i.Name, ItemName, RegexOptions.IgnoreCase))
+                {
+                    OutputList.Add(i);
+                }
+            }
+
+            ViewBag.ItemList = OutputList;
+            return View("Shop");
         }
     }
 }

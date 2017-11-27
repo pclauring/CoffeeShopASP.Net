@@ -5,7 +5,16 @@
 <div class="jumbotron">
     <h1>Coffee Shop</h1>
     <p class="lead">A place for coffee and coffee related things.</p>
-    <p><a href="/Home/Register" class="btn btn-primary btn-lg">Coffee Shop Registration &raquo;</a></p>
+    <p>
+        <a href="/Home/Register" class="btn btn-primary btn-lg">Coffee Shop Registration &raquo;</a>
+    </p><br />
+        <form action="/Home/SearchForItemName" method="get">
+            <label for="ItemNameInput">
+                <b>Search for a product?</b>
+            </label>
+            <input type="text" name="itemName" id="ItemNameForm" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
 </div>
 
 <div class="row">

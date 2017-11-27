@@ -27,3 +27,8 @@ textarea {
 border: 2px solid black;  
 
 }
+
+.d-flex flex-wrap {
+margin-bottom: 40px;
+
+}

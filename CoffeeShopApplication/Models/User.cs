@@ -11,13 +11,32 @@ namespace CoffeeShopApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
+        [RegularExpression("^[A-Za-z,-]{1,}$", ErrorMessage = "First Name must be at least 1 characters and only accepts letters!")]
+        [Required(ErrorMessage = "First Name is Required!")]
         public string firstName { get; set; }
+
+        [RegularExpression("^[A-Za-z,-]{1,}$", ErrorMessage = "Last Name must be at least 1 characters and only accepts letters!")]
+        [Required(ErrorMessage = "Last Name is Required!")]
         public string lastName { get; set; }
+
+        [RegularExpression(@"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
+     + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
+     + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+     + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$", ErrorMessage = "Please enter a valid Email")]
+        [Required(ErrorMessage = "Email is Required!")]
         public string email { get; set; }
+
+        [RegularExpression("^[0-9]{10}$", ErrorMessage = "The Phone Number was not in the correct format")]
+        [Required(ErrorMessage = "Phone Number is Required!")]
         public string phoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Password is Required!")]
         public string password { get; set; }
     }
 }
